@@ -1,0 +1,181 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+int main()
+{
+    srand(time(NULL));
+    int level , code , i , score , nombre , diff ;
+    char avis = 'n' ;
+    printf("===+ Bienvenue dans CodeBreaker +===\n");
+    printf("L'objectif de ce jeux est de deviner un code mystere entre 1 et 100 , \n");
+    printf(" Le nombre de tentatives varie en fonction des niveaux \n ");
+    printf("\n");
+    do
+    {
+    printf("NIVEAUX :\n");
+    printf("\n");
+    printf("1. Facile (10 tentatives) \n");
+    printf("2. Moyen (5 tentatives)\n");
+    printf("3. Difficile (3 tentatives)\n");
+    printf("4. Legende (2 tentatives)\n");
+    printf("\n");
+    printf(" Veuillez choisir un niveau : \n");
+    scanf("%d",&level);
+
+
+    switch(level)
+    {
+        case 1 : printf("=+ NIVEAU FACILE +=\n");
+        printf("\n");
+        printf("OBJECTIF : Choisir un nombre mystere entre 1 et 100 en moins de dix tentatives \n");
+        printf("Votre score actuel est de 100 pts , a chaque erreur , on vous enlevera 5 pts \n");
+        printf("\n");
+        nombre = (rand()%100)+1 ;
+        i=0;
+        score =  100;
+        do
+        {
+          printf("Tentative %d , Entrez un code : \n",i+1);
+          scanf("%d",&code);
+          diff= abs(nombre-code);
+          if(diff<5 && nombre != code)
+            printf("Tu es chaud , creuse encore \n");
+            if (code!=nombre )
+            {
+                score-=5 ;
+                printf("_-5 pts , score actuel : %d pts \n",score);
+            }
+            else
+                printf("votre score est de %d\n ",score);
+          if(code>nombre )
+              printf("Trop grand \n");
+          else if(code<nombre)
+            printf("Trop petit \n");
+          else
+            printf("Bravooooooo , le code est %d \n",nombre);
+            i++ ;
+        }
+        while( i<10 && nombre != code );
+        if(i>9 && nombre != code )
+            printf("---Dommage vous avez perdu , le bon code est %d --- \n",nombre);
+        break ;
+     case 2 : printf(" =+ NIVEAU MOYEN += \n");
+     printf("\n");
+     printf("OBJECTIF : Choisir un nombre mystere entre 1 et 100 en moins de cinq tentatives \n");
+        printf("Votre score actuel est de 100 pts , a chaque erreur , on vous enlevera 5 pts \n");
+        printf("\n");
+        nombre = (rand()%100)+1 ;
+        i=0;
+        score =  100;
+        do
+        {
+          printf("Tentative %d , Entrez un code : \n",i+1);
+          scanf("%d",&code);
+          diff = abs(nombre-code);
+          if(diff<5 && nombre != code )
+            printf("Tu es chaud , creuse encore \n");
+            if (code!=nombre )
+            {
+                score-=5 ;
+                printf("_-5 pts , score actuel : %d pts\n",score);
+            }
+            else
+                printf("votre score est de %d\n ",score);
+          if(code>nombre )
+              printf("Trop grand \n");
+          else if(code<nombre)
+            printf("Trop petit \n");
+          else
+            printf("Bravooooooo , le code est %d \n",nombre);
+            i++ ;
+        }
+        while( i<5 && nombre != code );
+        if(i>4 && nombre != code)
+            printf("---Dommage vous avez perdu , le bon code est %d --- \n",nombre);
+        break ;
+        case 3 : printf(" =+ NIVEAU DIFFICILE +=\n");
+         printf("\n");
+     printf("OBJECTIF : Choisir un nombre mystere entre 1 et 100 en moins de trois tentatives \n");
+        printf("Votre score actuel est de 100 pts , a chaque erreur , on vous enlevera 5 pts \n");
+        printf("\n");
+        nombre = (rand()%100)+1 ;
+        i=0;
+        score =  100;
+        do
+        {
+          printf("Tentative %d , Entrez un code : \n",i+1);
+          scanf("%d",&code);
+          diff = abs(nombre-code);
+          if(diff<5 && nombre != code)
+            printf("Tu es chaud , creuse encore \n");
+            if (code!=nombre )
+            {
+                score-=5 ;
+                printf("_-5 pts , Score actuel : %d\n", score);
+            }
+            else
+                printf("votre score est de %d pts \n ",score);
+          if(code>nombre )
+              printf("Trop grand \n ");
+          else if(code<nombre)
+            printf("Trop petit \n");
+          else
+            printf("Bravooooooo , le code est %d \n",nombre);
+            i++ ;
+        }
+        while( i<3 && nombre != code );
+        if(i>2 && nombre != code)
+            printf("---Dommage vous avez perdu , le bon code est %d --- \n",nombre);
+        break ;
+        case 4 : printf(" =+ NIVEAU LEGENDE += \n");
+         printf("\n");
+     printf("OBJECTIF : Choisir un nombre mystere entre 1 et 100 en moins de deux tentatives \n");
+        printf("Votre score actuel est de 100 pts , a chaque erreur , on vous enlevera 5 pts \n");
+        printf("\n");
+        nombre = (rand()%100)+1 ;
+        i=0;
+        score =  100;
+        do
+        {
+          printf("Tentative %d , Entrez un code : \n",i+1);
+          scanf("%d",&code);
+          diff = abs(nombre-code);
+          if(diff<5 && nombre != code)
+            printf("Tu es chaud , creuse encore \n");
+            if (code!=nombre )
+            {
+                score-=5 ;
+                printf("_-5 pts , Score actuel : %d pts \n", score);
+            }
+            else
+                printf("votre score est de %d\n ",score);
+          if(code>nombre )
+              printf("Trop grand \n");
+          else if(code<nombre)
+            printf("Trop petit \n ");
+          else
+            printf("Bravooooooo , le code est %d \n",nombre);
+            i++ ;
+        }
+        while( i<2 && nombre != code );
+        if(i>1 && nombre != code)
+            printf("---Domamage vous avez perdu , le bon code est %d --- \n",nombre);
+        break ;
+        default : printf("Ce niveau n'existe pas ... \n");
+    }
+
+        printf("---voulez vous rejouer oui (o) ou non (n) --- \n");
+        scanf(" %c",&avis);
+
+
+
+    }
+    while(i != 0 && avis != 'n');
+
+
+
+    return 0;
+
+}
